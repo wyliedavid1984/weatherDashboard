@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <header class="jumbtron container-fluid mx-sm-0">
+    <header class="jumbtron container-fluid mx-sm-0 mb-3">
         <nav class="navbar navbar-light bg-light">
 
             <h2>
@@ -27,10 +27,10 @@
 
         <div class="row pt-2 ml-2">
             <div id="search" class="col-md-4">
-                <h5 class="row">Search for a City</h5>
+                <h5 class="row mb-3">Search for a City</h5>
                 <div class="row">
-                    <input id="searchBar" placeholder="Enter the city" />
-                    <button id="search" class="btn fa fa-search"></button>
+                    <input id="searchBar" placeholder="Enter the city" class="col-9" />
+                    <button id="search" class="btn fa fa-search col-3"></button>
                 </div>
                 <ul id="previousCity"></ul>
                 </ul>
@@ -38,29 +38,69 @@
 
             <div id="weatherDisplay" class="col-md-8">
 
-                <div class="jumbotron">
-                    <h2 class="display-4 today">Hello, world!</h2>
-                    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra
+                <div class="jumbotron border my-2 p-2">
+                    <h2 class="display-7 my-2" id="today">Hello, world!</h2>
+                    <p id="temperature" class="my-2">This is a simple hero unit, a simple jumbotron-style component for
+                        calling extra
                         attention to featured content or information.</p>
-                    <hr class="my-4">
-                    <p>It uses utility classes for typography and spacing to space content out within the larger
+                    <p id="humidity" class="my-2"></p>
+                    <p id="windSpeed" class="my-2">It uses utility classes for typography and spacing to space content
+                        out within the larger
                         container.</p>
+                    <p id="uvIndex" class="my-2"></p>
                 </div>
 
-                <div id="fiveDay" class="row">
+                <div id="fiveDay" class="row my-2 py-2">
 
-                    <div class="card col-md-2 mx-auto" style="width: 18rem;">
+                    <div class="card col-md-2 mx-auto bg-primary">
                         <h5 class="card-title">Card title</h5>
-                        <img src="..." class="card-img-top" alt="...">
+                        <img src="#" class="card-img-top" alt="...">
                         <ul class="list-group list-group-flush">
                             <li>Cras justo odio</li>
                             <li>Dapibus ac facilisis in</li>
                         </ul>
                     </div>
+                    <div class="card col-md-2 mx-auto bg-primary">
+                        <h5 class="card-title">Card title</h5>
+                        <img src="#" class="card-img-top" alt="...">
+                        <ul class="list-group list-group-flush">
+                            <li>Cras justo odio</li>
+                            <li>Dapibus ac facilisis in</li>
+                        </ul>
+                    </div>
+                    <div class="card col-md-2 mx-auto bg-primary">
+                        <h5 class="card-title">Card title</h5>
+                        <img src="#" class="card-img-top" alt="...">
+                        <ul class="list-group list-group-flush">
+                            <li>Cras justo odio</li>
+                            <li>Dapibus ac facilisis in</li>
+                        </ul>
+                    </div>
+                    <div class="card col-md-2 mx-auto bg-primary">
+                        <h5 class="card-title">Card title</h5>
+                        <img src="#" class="card-img-top" alt="...">
+                        <ul class="list-group list-group-flush">
+                            <li>Cras justo odio</li>
+                            <li>Dapibus ac facilisis in</li>
+                        </ul>
+                    </div>
+                    <div class="card col-md-2 mx-auto bg-primary">
+                        <h5 class="card-title">Card title</h5>
+                        <img src="#" class="card-img-top" alt="...">
+                        <ul class="list-group list-group-flush">
+                            <li>Cras justo odio</li>
+                            <li>Dapibus ac facilisis in</li>
+                        </ul>
+                    </div>
+                      <div id="weather">
+                          <div id="description"></div>
+                          <h3 id="temp"></h3>
+                          <div id="location"></div>
+                      </div>
                 </div>
 
-                </div>
             </div>
+        </div>
 
 
     </main>
