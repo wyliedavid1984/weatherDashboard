@@ -97,6 +97,19 @@ $(document).ready(function () {
                 $("#temperature").text("Temperature: " + fahrenheit + "\u02DAF, " + celcius + "\u02DAC");
                 $("#humidity").text("Humidity: " + response.current.humidity);
                 $("#windSpeed").text("Wind Speed: " + response.current.wind_speed);
+                // giving the p tag a color based on uvIndex
+                var uvIndex = response.current.uvi;
+                if(uvIndex<3){
+                    $("#uvIndex").addClass("low")
+                }else if (uvIndex<6){
+                     $("#uvIndex").addClass("moderate")
+                }else if (uvIndex<8){
+                     $("#uvIndex").addClass("high")
+                }else if (uvIndex<11){
+                     $("#uvIndex").addClass("veryHigh")
+                }else{
+                     $("#uvIndex").addClass("extreme")
+                }
                 $("#uvIndex").text("UV Index: " + response.current.uvi);
                 // use a for loop to put the content into the cards first is for the icons. then after that we set the temp, dates, humidity 
                 for (var i = 0; i < 5; i++) {

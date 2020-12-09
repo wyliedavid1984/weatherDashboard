@@ -15,3 +15,23 @@ body{
 .jumbotron{
     background-color:  lightblue;
 }
+
+.low{
+    background-color: green;
+}
+
+.moderate{
+    background-color: yellow;
+}
+
+.high{
+    background-color: orange;
+}
+
+.veryHigh{
+    background-color: red;
+}
+
+.extreme{
+    background-color: purple;
+}
