@@ -1,7 +1,7 @@
 $(document).ready(function () {
     // getting data from local storage parsing it.
     var previousCities = JSON.parse(localStorage.getItem("userCities"));
-    
+
     // checking to see if there is data in local storage if no set variable previousCities to an
     // empty string. Otherwise, create a list of the cities previously entered
     if (previousCities === null) {
@@ -9,7 +9,7 @@ $(document).ready(function () {
         console.log("if === null " + previousCities);
     } else {
         for (var i = 0; i < previousCities.length; i++) {
-            $("#previousCity").prepend("<br><button>" + previousCities[i]);
+            $("#previousCity").prepend("<br><button class='city'>" + previousCities[i] + "</button>");
         }
 
     }
@@ -18,6 +18,9 @@ $(document).ready(function () {
     var cityName = previousCities[previousCities.length - 1];
     weatherBalloon(cityName);
     
+    var cityButton;
+
+
     // functionality on the clear button.
     $(".clear").on("click", function (event) {
         event.preventDefault();
@@ -45,9 +48,10 @@ $(document).ready(function () {
             alert("Please just click on the city to get that information.")
         } else {
             previousCities.push(userCity);
-            $("#previousCity").prepend("<br><button>" + userCity);
+            $("#previousCity").prepend("<br><button class='city'>" + userCity + "</button>");
+
         }
-        
+
         // this sets the user city into local storage with a key of userCities.
         localStorage.setItem("userCities", JSON.stringify(previousCities))
         // reset the search to placeholder
@@ -57,14 +61,14 @@ $(document).ready(function () {
         weatherBalloon(cityName);
     });
 
-    // $(".city").click(function (e) { 
-    //     e.preventDefault();
-    //     console.log(this.id);
-    //     $(this)
+    $(".city").click(function (e) {
+        e.preventDefault();
+        console.log($(this).text());
+        var cityValue = $(this).text();
+        weatherBalloon(cityValue);
+    });
 
-    // });
-
-// this function make three different api calls.  
+    // this function make three different api calls.  
     function weatherBalloon(city) {
         // setting local variables
         var key = '34af04e7087783be92496c2a33100782';
@@ -95,11 +99,12 @@ $(document).ready(function () {
                     url: iconURL,
                     method: "GET"
                 }).then(function (resIcon) {
+                    console.log(resIcon);
                     for (var i = 0; i < 5; i++) {
 
                         var cardFah = Math.round(((parseFloat(response.daily[i].temp.day) - 273.15) * 1.8) + 32);
                         $("#date" + i).text(moment().format('l'));
-                        $("#img"+i).text(response.daily[i].weather[0].icon);
+                        $("#img" + i).text(response.daily[i].weather[0].icon);
                         $("#temp" + i).text("Temperature: " + cardFah);
                         $("#humidity" + i).text("Humidity: " + response.daily[i].humidity);
 
