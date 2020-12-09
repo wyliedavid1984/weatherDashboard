@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    window.onload(weatherBalloon(wilmington));
     // getting data from local storage parsing it.
     var previousCities = JSON.parse(localStorage.getItem("userCities"));
 
