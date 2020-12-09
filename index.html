@@ -8,13 +8,16 @@
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto:wght@700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Document</title>
 </head>
 
-<body>
-    <header class="jumbtron container-fluid mx-sm-0 mb-3">
-        <nav class="navbar text-center">
+<body id="body">
+    <header class="container-fluid mx-sm-0 mb-3">
+        <nav class="navbar justify-content-center">
 
             <h2>
                 Weather App
@@ -32,12 +35,11 @@
                 <button class="btn fa fa-trash clear">Clear City Names</button>
                 <!-- added a form tag around the input to for user ease, they can hit enter or click the button -->
                 <form action="" class="row">
-                    <input id="searchBar" placeholder="Enter the city" class="col-9" />
+                    <input id="searchBar" placeholder="Enter a USA city" class="col-9" />
                     <button class="btn fa fa-search col-3 search"></button>
                 </form>
 
-                <ul id="previousCity"></ul>
-                </ul>
+                <div id="previousCity"></div>
             </div>
 
             <!-- The jumbotron and card are in this div. -->
@@ -45,7 +47,7 @@
                 <!-- jumbotron displays today weather credentials  -->
                 <div class="jumbotron border my-2 p-2">
                     <h2 class="display-7 my-2" id="today"></h2>
-                    <div id="icon"><img id="wicon" src="" alt="Weather icon"></div>
+                    <div class="icon"><img id="wicon" src="" alt="Weather icon"></div>
                     <h3 id="temperature" class="my-2"></h3>
                     <h3 id="humidity" class="my-2"></h3>
                     <h3 id="windSpeed" class="my-2"></h3>
@@ -56,7 +58,7 @@
                 <div id="fiveDay" class="row my-2 py-2">
                     <div class="card col-md-2 mx-auto bg-primary">
                         <h5 class="card-title" id="date0">Card title</h5>
-                        <div id="icon"><img id="dIcon0" src="" alt="Weather icon"></div>
+                        <div class="icon"><img id="dIcon0" src="" alt="Weather icon"></div>
                         <ul class="list-group list-group-flush">
                             <li id="temp0"></li>
                             <li id="humidity0"></li>
@@ -64,7 +66,7 @@
                     </div>
                     <div class="card col-md-2 mx-auto bg-primary">
                         <h5 class="card-title" id="date1"></h5>
-                        <div id="icon"><img id="dIcon1" src="" alt="Weather icon"></div>
+                        <div class="icon"><img id="dIcon1" src="" alt="Weather icon"></div>
                         <ul class="list-group list-group-flush">
                             <li id="temp1"></li>
                             <li id="humidity1"></li>
@@ -72,7 +74,7 @@
                     </div>
                     <div class="card col-md-2 mx-auto bg-primary">
                         <h5 class="card-title" id="date2"></h5>
-                        <div id="icon"><img id="dIcon2" src="" alt="Weather icon"></div>
+                        <div class="icon"><img id="dIcon2" src="" alt="Weather icon"></div>
                         <ul class="list-group list-group-flush">
                             <li id="temp2"></li>
                             <li id="humidity2"></li>
@@ -80,7 +82,7 @@
                     </div>
                     <div class="card col-md-2 mx-auto bg-primary">
                         <h5 class="card-title" id="date3"></h5>
-                        <div id="icon"><img id="dIcon3" src="" alt="Weather icon"></div>
+                        <div class="icon"><img id="dIcon3" src="" alt="Weather icon"></div>
                         <ul class="list-group list-group-flush">
                             <li id="temp3"></li>
                             <li id="humidity3"></li>
@@ -88,7 +90,7 @@
                     </div>
                     <div class="card col-md-2 mx-auto bg-primary">
                         <h5 class="card-title" id="date4"></h5>
-                        <div id="icon"><img id="dIcon4" src="" alt="Weather icon"></div>
+                        <div class="icon"><img id="dIcon4" src="" alt="Weather icon"></div>
                         <ul class="list-group list-group-flush">
                             <li id="temp4"></li>
                             <li id="humidity4"></li>

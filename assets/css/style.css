@@ -2,36 +2,54 @@
 ul {
     list-style-type: none;
 }
+
 /* the following just give a little color to the web application */
-header{
-    background-color:lightyellow;
+header {
+    background-color: lightyellow !important;
     align-items: center;
 }
 
-body{
-    background-color:lightgray;
+body {
+    font-family: 'Permanent Marker',
+        cursive;       
 }
 
-.jumbotron{
-    background-color:  lightblue;
+.morning{
+  background-image: linear-gradient(rgba(0, 0, 175, 0.5), rgba(175, 125, 0, 0.5));
 }
 
-.low{
+.afternoon{
+    background-image: linear-gradient(rgba(0, 0, 175, 0.5), rgba(200, 200, 0, 0.5));
+}
+
+.dusk{
+background-image: linear-gradient(rgba(0, 0, 175, 0.5), rgba(200, 0, 183, 0.5));
+}
+
+.dark{
+background-image: linear-gradient(rgba(0, 4, 56, 0.486), rgba(23, 2, 58, 0.5));
+}
+
+.jumbotron {
+    background-color: lightblue;   
+}
+
+.low {
     background-color: green;
 }
 
-.moderate{
+.moderate {
     background-color: yellow;
 }
 
-.high{
+.high {
     background-color: orange;
 }
 
-.veryHigh{
+.veryHigh {
     background-color: red;
 }
 
-.extreme{
+.extreme {
     background-color: purple;
 }
