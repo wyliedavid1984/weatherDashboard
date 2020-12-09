@@ -17,10 +17,6 @@ $(document).ready(function () {
     // It uses the last city that the user looked up.
     var cityName = previousCities[previousCities.length - 1];
     weatherBalloon(cityName);
-    
-    var cityButton;
-
-
     // functionality on the clear button.
     $(".clear").on("click", function (event) {
         event.preventDefault();
@@ -61,6 +57,7 @@ $(document).ready(function () {
         weatherBalloon(cityName);
     });
 
+    // this creates functionality for the city buttons
     $(".city").click(function (e) {
         e.preventDefault();
         console.log($(this).text());
@@ -68,63 +65,51 @@ $(document).ready(function () {
         weatherBalloon(cityValue);
     });
 
-    // this function make three different api calls.  
+    // this function makes two api calls.  
     function weatherBalloon(city) {
-        // setting local variables
+        // setting local variables for the function
         var key = '34af04e7087783be92496c2a33100782';
         var latLonURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + key
-
+        // first ajax to get the city's lat and lon
         $.ajax({
             url: latLonURL,
             method: "GET"
         }).then(function (res) {
             console.log(res);
+            // setting the lon and lat variable to the city's lat and lon
             var lon = JSON.stringify(res.coord.lon);
             var lat = JSON.stringify(res.coord.lat);
             var queryURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=&appid=" + key;
+            // second ajax to get the a future forecast as well as regular data
             $.ajax({
                 url: queryURL,
                 method: "GET"
             }).then(function (response) {
                 console.log(response)
+                // first two variables to get both celcuis and fahrenheit
                 var celcius = Math.round(parseFloat(response.current.temp) - 273.15);
                 var fahrenheit = Math.round(((parseFloat(response.current.temp) - 273.15) * 1.8) + 32);
-                var iconURL = "http://openweathermap.org/img/wn/10d@2x.png"
+                // this var has a url set to get the icon
+                var iconURL = "http://openweathermap.org/img/wn/" + response.current.weather[0].icon + ".png";
+                // setting up the display to the jumbotron grabbing id and setting text values except the first one that set our icon id to a src URL
+                $('#wicon').attr('src', iconURL);
                 $("#today").text(res.name + " " + moment().format("dddd, MMMM do YYYY"));
-                $("#temperature").text("Temperature: " + celcius + "\u02DAc, " + fahrenheit + "\u02DAf");
+                $("#temperature").text("Temperature: " + fahrenheit + "\u02DAF, " + celcius + "\u02DAC");
                 $("#humidity").text("Humidity: " + response.current.humidity);
                 $("#windSpeed").text("Wind Speed: " + response.current.wind_speed);
                 $("#uvIndex").text("UV Index: " + response.current.uvi);
-                $.ajax({
-                    url: iconURL,
-                    method: "GET"
-                }).then(function (resIcon) {
-                    console.log(resIcon);
-                    for (var i = 0; i < 5; i++) {
-
-                        var cardFah = Math.round(((parseFloat(response.daily[i].temp.day) - 273.15) * 1.8) + 32);
-                        $("#date" + i).text(moment().format('l'));
-                        $("#img" + i).text(response.daily[i].weather[0].icon);
-                        $("#temp" + i).text("Temperature: " + cardFah);
-                        $("#humidity" + i).text("Humidity: " + response.daily[i].humidity);
-
-
-                    }
-                })
+                // use a for loop to put the content into the cards first is for the icons. then after that we set the temp, dates, humidity 
+                for (var i = 0; i < 5; i++) {
+                    iconURL = "http://openweathermap.org/img/wn/" + response.daily[i].weather[0].icon + ".png";
+                    $('#dIcon' + i).attr('src', iconURL);
+                    var daysForward = new moment().add(i + 1, 'day')
+                    var cardFah = Math.round(((parseFloat(response.daily[i].temp.day) - 273.15) * 1.8) + 32);
+                    $("#date" + i).text(daysForward.format('MMM do, YY'));
+                    $("#dIcon" + i).text(iconURL);
+                    $("#temp" + i).text("Temp: " + cardFah + "\u02DAF");
+                    $("#humidity" + i).text("Humidity: " + response.daily[i].humidity);
+                }
             });
         })
     }
-
-
-    // window.onload = function () {
-    //     weatherBalloon(previousCity[previousCity.length - 1]);
-    // }
-
-    // 
-
-    // $('#description').text(d.weather[0].description);
-    // $('#temp').text();
-    // $('#location').text(d.name);
-
-
 })

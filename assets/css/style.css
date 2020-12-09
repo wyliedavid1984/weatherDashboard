@@ -1,4 +1,17 @@
+/* remove dot from list */
 ul {
     list-style-type: none;
 }
+/* the following just give a little color to the web application */
+header{
+    background-color:lightyellow;
+    align-items: center;
+}
 
+body{
+    background-color:lightgray;
+}
+
+.jumbotron{
+    background-color:  lightblue;
+}
