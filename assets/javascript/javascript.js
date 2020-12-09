@@ -70,12 +70,8 @@ $(document).ready(function () {
     function weatherBalloon(city) {
         // setting local variables for the function
         var key = '34af04e7087783be92496c2a33100782';
-        var latLonURL;
-        if (location.protocol === 'http:') {
-            latLonURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + key
-        } else {
-            latLonURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + key
-        }
+        var latLonURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + key
+       
         // first ajax to get the city's lat and lon
         $.ajax({
             url: latLonURL,
@@ -85,12 +81,8 @@ $(document).ready(function () {
             // setting the lon and lat variable to the city's lat and lon
             var lon = JSON.stringify(res.coord.lon);
             var lat = JSON.stringify(res.coord.lat);
-            var queryURL;
-            if (location.protocol === 'http:') {
-                queryURL = "http://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=&appid=" + key;
-            } else{
-                queryURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=&appid=" + key;
-            }
+            var queryURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=&appid=" + key;
+            
             // second ajax to get the a future forecast as well as regular data
             $.ajax({
                 url: queryURL,
