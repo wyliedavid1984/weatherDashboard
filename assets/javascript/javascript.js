@@ -80,7 +80,7 @@ $(document).ready(function () {
             // setting the lon and lat variable to the city's lat and lon
             var lon = JSON.stringify(res.coord.lon);
             var lat = JSON.stringify(res.coord.lat);
-            var queryURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=&appid=" + key;
+            var queryURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=minutely,hourly&appid=" + key;
             // second ajax to get the a future forecast as well as regular data
             $.ajax({
                 url: queryURL,
