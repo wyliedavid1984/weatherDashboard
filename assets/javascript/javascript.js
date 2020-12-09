@@ -88,14 +88,14 @@ $(document).ready(function () {
             }).then(function (response) {
                 console.log(response)
                 // first two variables to get both celcuis and fahrenheit
-                var celcius = Math.round(parseFloat(response.current.temp) - 273.15);
+                var celsius = Math.round(parseFloat(response.current.temp) - 273.15);
                 var fahrenheit = Math.round(((parseFloat(response.current.temp) - 273.15) * 1.8) + 32);
                 // this var has a url set to get the icon
-                var iconURL = "http://openweathermap.org/img/wn/" + response.current.weather[0].icon + ".png";
+                var iconURL = "https://openweathermap.org/img/wn/" + response.current.weather[0].icon + ".png";
                 // setting up the display to the jumbotron grabbing id and setting text values except the first one that set our icon id to a src URL
                 $('#wicon').attr('src', iconURL);
                 $("#today").text(res.name + " " + moment().format("dddd, MMMM do YYYY"));
-                $("#temperature").text("Temperature: " + fahrenheit + "\u02DAF, " + celcius + "\u02DAC");
+                $("#temperature").text("Temperature: " + fahrenheit + "\u02DAF, " + celsius + "\u02DAC");
                 $("#humidity").text("Humidity: " + response.current.humidity);
                 $("#windSpeed").text("Wind Speed: " + response.current.wind_speed);
                 // giving the p tag a color based on uvIndex
@@ -114,7 +114,7 @@ $(document).ready(function () {
                 $("#uvIndex").text("UV Index: " + response.current.uvi);
                 // use a for loop to put the content into the cards first is for the icons. then after that we set the temp, dates, humidity 
                 for (var i = 0; i < 5; i++) {
-                    iconURL = "http://openweathermap.org/img/wn/" + response.daily[i].weather[0].icon + ".png";
+                    iconURL = "https://openweathermap.org/img/wn/" + response.daily[i].weather[0].icon + ".png";
                     $('#dIcon' + i).attr('src', iconURL);
                     var daysForward = new moment().add(i + 1, 'day')
                     var cardFah = Math.round(((parseFloat(response.daily[i].temp.day) - 273.15) * 1.8) + 32);
