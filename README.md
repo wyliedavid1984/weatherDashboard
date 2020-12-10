@@ -12,6 +12,12 @@ Our assignment was to create a weather application.  If the user puts in a city 
 
 -[Credits](##Credits)
 
+## Links
+
+*[Git Repository](https://github.com/wyliedavid1984/weatherDashboard)
+
+*[Deployed link](https://wyliedavid1984.github.io/weatherDashboard/)
+
 ## Javascript
 
 <details>
