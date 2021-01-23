@@ -20,6 +20,7 @@ $(document).ready(function () {
     $(document).on("click", ".clear", function (event) {
         event.preventDefault();
         localStorage.clear();
+        window.location.reload();
     })
 
     // wrapped it in a form tag so that the user can hit the return key, or click on the 
